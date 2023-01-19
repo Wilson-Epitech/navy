@@ -6,6 +6,10 @@
 ##
 
 SRC =	main.c					\
+	src/open_read_and_parse.c 	\
+	src/print_map.c 			\
+	src/print_boat.c 			\
+	src/connect_terminal.c 		\
 	lib/my_putchar.c			\
 	lib/my_putstr.c				\
 	lib/my_strlen.c             \
@@ -15,6 +19,7 @@ SRC =	main.c					\
 	lib/my_strcpy.c 			\
 	lib/word_array_delimit.c 	\
 	lib/word_array_non_alpha.c  \
+	lib/word_array_two_points.c \
 
 OBJ =	$(SRC:.c=.o)
 

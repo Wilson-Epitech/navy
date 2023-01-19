@@ -16,4 +16,5 @@ char *my_strcat(char *dest, char const *src);
 char *my_strcpy(char *dest, char const *src);
 char **word_array_non_alpha(char const *str);
 char **word_array_delimit(char const *str);
+char **word_array_two_points(char const *str);
 #endif
