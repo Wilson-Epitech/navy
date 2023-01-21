@@ -8,9 +8,6 @@
 #ifndef NAVY_H_
     #define NAVY_H_
     #include "struct.h"
-int who_sig_me(void);
-int process_info(void);
-int kill_it(char **av);
 int open_and_read_map(char **av, structure_t *st);
 int fill_array(structure_t *st);
 int parsing(structure_t *st, structure_t stock[st->nb_of_lines]);

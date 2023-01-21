@@ -18,7 +18,7 @@ int parsing(structure_t *st, structure_t stock[st->nb_of_lines])
 {
     int y = 0;
 
-    for (int x = 0; st->array[x + 1] != NULL; x++) {
+    for (int x = 0; st->array[x] != NULL; x++) {
         if (x == 0 || x == 3 || x == 6 || x == 9) {
             stock[y].length = st->array[x];
         }
@@ -44,12 +44,12 @@ int fill_array(structure_t *st)
 
     int x = 0;
     while (st->buffer[x] != '\0') {
-        if (st->buffer[x] == '\n') {
+        if (st->buffer[x] == ':') {
             st->nb_of_lines++;
         }
         x++;
     }
-
+    st->nb_of_lines = st->nb_of_lines / 2;
     return (0);
 }
 
@@ -61,7 +61,7 @@ int open_and_read_map(char **av, structure_t *st)
         return (84);
     struct stat sb;
     stat(filepath, &sb);
-    int size = sb.st_size;
+    int size = 32;
     st->buffer = malloc(sizeof(char) * (size + 1));
     st->buffer[size] = '\0';
     read(fd, st->buffer, size);
