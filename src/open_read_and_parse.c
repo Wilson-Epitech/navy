@@ -59,8 +59,6 @@ int open_and_read_map(char **av, structure_t *st)
     int fd = open(filepath, O_RDONLY);
     if (fd < 0)
         return (84);
-    struct stat sb;
-    stat(filepath, &sb);
     int size = 32;
     st->buffer = malloc(sizeof(char) * (size + 1));
     st->buffer[size] = '\0';
