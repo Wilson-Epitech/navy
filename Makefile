@@ -9,7 +9,6 @@ SRC =	main.c					\
 	src/open_read_and_parse.c 	\
 	src/print_map.c 			\
 	src/print_boat.c 			\
-	src/connect_terminal.c 		\
 	lib/my_putchar.c			\
 	lib/my_putstr.c				\
 	lib/my_strlen.c             \
