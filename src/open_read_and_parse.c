@@ -17,13 +17,12 @@
 int parsing(structure_t *st, structure_t stock[st->nb_of_lines])
 {
     int y = 0;
-
+    st->nb = 2;
     for (int x = 0; st->array[x] != NULL; x++) {
         if (x == 0 || x == 3 || x == 6 || x == 9) {
             check_length(st->array[x], st);
             stock[y].length = st->array[x];
         }
-
         if (x == 1 || x == 4 || x == 7 || x == 10) {
             check_str(st->array[x], st);
             stock[y].start = st->array[x];

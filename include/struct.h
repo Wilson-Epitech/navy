@@ -22,6 +22,7 @@ typedef struct {
     char *numbers;
     char **map_array;
     int error;
+    int nb;
 } structure_t;
 
 #endif

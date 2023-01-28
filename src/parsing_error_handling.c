@@ -21,11 +21,12 @@ int check_length(char *str, structure_t *st)
         return (84);
     }
 
-    if (str[0] < '2' || str[0] > '8') {
+    if (str[0] != st->nb + '0') {
         st->error = 1;
         return (84);
     }
 
+    st->nb += 1;
     return (0);
 }
 

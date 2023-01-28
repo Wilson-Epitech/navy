@@ -18,7 +18,7 @@ int is_connected = 0;
 void manage_sigusr2(int signal)
 {
     if (signal == SIGUSR2) {
-        my_putstr("enemy connected\n");
+        my_putstr("enemy connected\n\n");
         is_connected = 1;
     }
 
@@ -51,9 +51,43 @@ int second_terminal_infos(char **av)
         my_putstr("my_pid: ");
         my_put_nbr(pid_terminal2);
         my_putchar('\n');
-        my_putstr("successfully connected\n");
+        my_putstr("successfully connected\n\n");
     } else {
         return (84);
     }
     return (0);
 }
+
+/*
+int first_terminal_in_game(void)
+{
+    my_putstr("attack:");
+    while (is_connected != 2) {
+        pause();
+    }
+    return (0);
+}
+
+int second_terminal_in_game(void)
+{
+    my_putstr("waiting for enemy's attack...");
+    while (is_connected != 2) {
+        pause();
+    }
+    return (0);
+}
+
+
+int terminals_in_game(int ac)
+{
+    if (ac == 2) {
+        first_terminal_in_game();
+    }
+
+    if (ac == 3) {
+        second_terminal_in_game();
+    }
+
+    return (0);
+}
+*/

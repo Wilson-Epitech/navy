@@ -14,45 +14,26 @@
 #include "navy.h"
 #include "struct.h"
 
-void print_borders(void)
-{
-    char *pos_letters = " |A B C D E F G H";
-    char *map_delim = "-+---------------";
-
-    my_putchar('\n');
-    my_putstr(pos_letters);
-    my_putchar('\n');
-    my_putstr(map_delim);
-    my_putchar('\n');
-}
-
-int fill_map(char *map)
-{
-    int i = 0;
-
-    for (i = 0; i <= 127; i++) {
-        if (i % 2 == 0) {
-            map[i] = '.';
-        }
-        if (i % 2 != 0) {
-            map[i] = ' ';
-        }
-        if (i == 15 || i == 31 || i == 47 ||
-        i == 63 || i == 79 || i == 95 ||
-        i == 111 || i == 127) {
-            map[i] = '\n';
-        }
-    }
-    map[i] = '\0';
-}
-
-int print_map(structure_t *st, structure_t stock[st->nb_of_lines])
+int print_defense_map(structure_t *st, structure_t stock[st->nb_of_lines])
 {
     st->map_lines = 8;
     char *line = ". . . . . . . .\n";
     char *map = malloc(sizeof(char) * (my_strlen(line) * 8) + 1);
+    my_putstr("my positions:\n");
     print_borders();
     fill_map(map);
-    map_array(st, stock, map);
+    map_defense(st, stock, map);
+
+}
+
+int print_attack_map(structure_t *st, structure_t stock[st->nb_of_lines])
+{
+    st->map_lines = 8;
+    char *line = ". . . . . . . .\n";
+    char *map = malloc(sizeof(char) * (my_strlen(line) * 8) + 1);
+    my_putstr("enemy's positions:\n");
+    print_borders();
+    fill_map(map);
+    map_attack(st, stock, map);
 
 }
