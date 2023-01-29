@@ -14,10 +14,11 @@
 #include "navy.h"
 #include "struct.h"
 
-int parsing(structure_t *st, structure_t stock[st->nb_of_lines])
+void parsing(structure_t *st, structure_t stock[st->nb_of_lines])
 {
-    int y = 0;
+    st->error = 0;
     st->nb = 2;
+    int y = 0;
     for (int x = 0; st->array[x] != NULL; x++) {
         if (x == 0 || x == 3 || x == 6 || x == 9) {
             check_length(st->array[x], st);
@@ -34,7 +35,7 @@ int parsing(structure_t *st, structure_t stock[st->nb_of_lines])
             y += 1;
         }
     }
-    return (0);
+
 }
 
 int fill_array(structure_t *st)
@@ -86,7 +87,7 @@ int open_and_read_map(int ac, char **av, structure_t *st)
     st->buffer[size] = '\0';
     read(fd, st->buffer, size);
     if (my_strlen(st->buffer) <= 3)
-        return 84;
+        return (84);
     int check = check_map(st);
     if (check == 84)
         return (84);

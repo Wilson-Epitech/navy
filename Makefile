@@ -6,11 +6,11 @@
 ##
 
 SRC =	main.c					\
+	src/check_and_launch.c 		\
 	src/open_read_and_parse.c 	\
-	src/print_map.c 			\
-	src/print_map2.c			\
-	src/print_boat_defense.c 	\
-	src/print_boat_attack.c 	\
+	src/fill_maps.c 			\
+	src/check_and_fill_boats.c 	\
+	src/print_maps.c 			\
 	src/parsing_error_handling.c\
 	src/connect_terminals.c 	\
 	lib/my_putchar.c			\

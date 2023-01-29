@@ -44,3 +44,27 @@ int fill_map(char *map)
     }
     map[i] = '\0';
 }
+
+int fill_defense_map(structure_t *st, structure_t stock[st->nb_of_lines])
+{
+    st->map_lines = 8;
+    char *line = ". . . . . . . .\n";
+    char *map = malloc(sizeof(char) * (my_strlen(line) * 8) + 1);
+    fill_map(map);
+    int check_boats_pos = check_boats(st, stock, map);
+    if (check_boats_pos == 84) {
+        return (84);
+    }
+
+}
+
+int fill_attack_map(structure_t *st, structure_t stock[st->nb_of_lines])
+{
+    st->map_lines = 8;
+    char *line = ". . . . . . . .\n";
+    char *map = malloc(sizeof(char) * (my_strlen(line) * 8) + 1);
+    fill_map(map);
+
+    st->map_array = malloc(sizeof(char) * my_strlen(map));
+    st->map_array = word_array_delimit(map);
+}

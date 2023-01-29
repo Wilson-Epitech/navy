@@ -56,7 +56,7 @@ int choose_your_boat(structure_t *st, structure_t stock[st->nb_of_lines])
     return (0);
 }
 
-int print_boat(structure_t *st, structure_t stock[st->nb_of_lines])
+int fill_boats(structure_t *st, structure_t stock[st->nb_of_lines])
 {
     st->letters = "A B C D E F G H ";
     st->i = 0;
@@ -75,24 +75,15 @@ int print_boat(structure_t *st, structure_t stock[st->nb_of_lines])
     return (0);
 }
 
-int map_defense(structure_t *st, structure_t stock[st->nb_of_lines], char *map)
+int check_boats(structure_t *st, structure_t stock[st->nb_of_lines], char *map)
 {
     st->map_array = malloc(sizeof(char) * my_strlen(map));
     st->map_array = word_array_delimit(map);
     for (st->x = 0; st->x != st->nb_of_lines; st->x++) {
-        int check_boats = print_boat(st, stock);
+        int check_boats = fill_boats(st, stock);
         if (check_boats == 84) {
             return (84);
         }
     }
-    int compteur = 0;
-    for (int x = 0; st->map_array[x + 1] != NULL; x++) {
-        compteur++;
-        my_put_nbr(compteur);
-        my_putchar('|');
-        my_putstr(st->map_array[x]);
-        my_putchar('\n');
-    }
-    my_putchar('\n');
     return (0);
 }

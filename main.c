@@ -24,54 +24,19 @@ void h_option(void)
     my_putstr("the positions of the ships.\n");
 }
 
-void free_all(structure_t *st)
-{
-    free(st->buffer);
-    free(st->array);
-    free(st);
-}
-
-int launch_game(int ac, char **av)
-{
-    structure_t *st = malloc(sizeof(structure_t));
-    st->error = 0;
-    int check = open_and_read_map(ac, av, st);
-    if (check == 84)
-        return (84);
-    int check2 = fill_array(st);
-    if (check2 == 84)
-        return (84);
-    structure_t stock[st->nb_of_lines];
-    parsing(st, stock);
-    if (st->error == 1)
-        return (84);
-    int check3 = print_defense_map(st, stock);
-    if (check3 == 84)
-        return (84);
-    print_attack_map(st, stock);
-    return (0);
-}
-
 int main(int ac, char **av)
 {
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0') {
         h_option();
         return (0);
     }
-    if (ac == 2) {
-        first_terminal_infos(av);
-        int check_game_p1 = launch_game(ac, av);
-        if (check_game_p1 == 84)
+    if (ac == 2 || ac == 3) {
+        int check_all = check_and_launch(ac, av);
+        if (check_all == 84)
             return (84);
     }
+    if (ac != 2 && ac != 3)
+        return (84);
 
-    if (ac == 3) {
-        int check = second_terminal_infos(av);
-        if (check != 0)
-            return (check);
-        int check_game_p2 = launch_game(ac, av);
-        if (check_game_p2 == 84)
-            return (84);
-    }
     return (0);
 }
