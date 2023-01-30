@@ -16,6 +16,11 @@
 
 int boat_in_x(structure_t *st, structure_t stock[st->nb_of_lines])
 {
+    if (my_getnbr(stock[st->x].end) - my_getnbr(stock[st->x].start) !=
+    my_getnbr(stock[st->x].length) - 1) {
+        return (84);
+    }
+
     while (st->numbers[st->y] != stock[st->x].end[1]) {
         st->map_array[st->y][st->i] = stock[st->x].length[0];
         st->y += 1;
@@ -26,6 +31,12 @@ int boat_in_x(structure_t *st, structure_t stock[st->nb_of_lines])
 
 int boat_in_y(structure_t *st, structure_t stock[st->nb_of_lines])
 {
+
+    if ((stock[st->x].end[0] - stock[st->x].start[0]) !=
+    my_getnbr(stock[st->x].length) - 1) {
+        return (84);
+    }
+
     while (st->letters[st->i] != stock[st->x].end[0]) {
         st->map_array[st->y][st->i] = stock[st->x].length[0];
         st->i += 2;
@@ -46,14 +57,17 @@ int choose_your_boat(structure_t *st, structure_t stock[st->nb_of_lines])
         return (84);
 
     if (stock[st->x].start[0] != stock[st->x].end[0] &&
-    stock[st->x].start[1] == stock[st->x].end[1])
-        boat_in_y(st, stock);
-
+    stock[st->x].start[1] == stock[st->x].end[1]) {
+        int check_boat_y = boat_in_y(st, stock);
+        if (check_boat_y == 84)
+            return (84);
+    }
     if (stock[st->x].start[0] == stock[st->x].end[0] &&
-    stock[st->x].start[1] != stock[st->x].end[1])
-        boat_in_x(st, stock);
-
-    return (0);
+    stock[st->x].start[1] != stock[st->x].end[1]) {
+        int check_boat_x = boat_in_x(st, stock);
+        if (check_boat_x == 84)
+            return (84);
+    }
 }
 
 int fill_boats(structure_t *st, structure_t stock[st->nb_of_lines])
@@ -85,5 +99,6 @@ int check_boats(structure_t *st, structure_t stock[st->nb_of_lines], char *map)
             return (84);
         }
     }
+
     return (0);
 }
