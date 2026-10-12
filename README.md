@@ -14,7 +14,7 @@
 
 <p align="center"><img src=".github/assets/term-navy.png" alt="Navy" width="820"/></p>
 
-## En deux mots
+## Le projet en quelques mots
 
 Deux joueurs lancent le programme dans deux terminaux. Ils n'ont pas de socket : tout passe par **`SIGUSR1` et `SIGUSR2`**. Le second joueur se connecte au premier avec son PID, puis chacun voit sa flotte et la grille adverse.
 
@@ -24,10 +24,6 @@ Deux joueurs lancent le programme dans deux terminaux. Ils n'ont pas de socket :
 - Lecture et validation du fichier de positions des bateaux
 - Affichage des deux grilles
 - La phase d'attaque n'est pas terminée
-
-## Sous le capot
-
-Le premier joueur affiche son PID et attend un signal. Le second envoie `SIGUSR1` à ce PID, et le premier récupère l'expéditeur via `siginfo_t` : les deux processus se connaissent, sans aucun socket.
 
 ## Lancer le projet
 
@@ -43,4 +39,4 @@ make
 
 Yanis Harkouk, Wilson Bordichon
 
-**Ma part :** J'ai écrit la lecture et la vérification du fichier de positions, la **connexion entre les deux terminaux** et l'affichage des grilles.
+**Ma partition :** J'ai écrit la lecture et la vérification du fichier de positions, la **connexion entre les deux terminaux** et l'affichage des grilles.
