@@ -29,8 +29,8 @@ Deux joueurs lancent le programme dans deux terminaux. Ils n'ont pas de socket :
 
 ```bash
 make
-./navy maps/pos1                  # joueur 1, affiche son PID
-./navy <PID_joueur_1> maps/pos2   # joueur 2
+./navy maps/pos1
+./navy <PID_joueur_1> maps/pos2
 ```
 
 ## L'équipe
