@@ -39,4 +39,4 @@ make
 
 Yanis Harkouk, Wilson Bordichon
 
-**Ma partition :** J'ai écrit la lecture et la vérification du fichier de positions, la **connexion entre les deux terminaux** et l'affichage des grilles.
+**Ma partition :** J'ai écrit la **connexion entre les deux terminaux** par signaux, la lecture et la vérification du fichier de positions, l'affichage des grilles et une partie de la bibliothèque utilitaire.
